@@ -61,12 +61,12 @@ function Orders() {
           ))
         ) : (
           <div className="empty d-flex align-center justify-center flex-column flex">
-            <img width={70} height={70} src="/img/ordersEmpty.svg" alt="Sadness" />
+            <img width={70} height={70} src="img/ordersEmpty.svg" alt="Sadness" />
             <h3 className="mb-10">У вас нет заказов</h3>
             <p>Видимо вы бомж...</p>
             <Link to="/">
               <button className="greenButton">
-                <img src="/img/arrow.svg" alt="Arrow" /> Вернуться назад
+                <img src="img/arrow.svg" alt="Arrow" /> Вернуться назад
               </button>
             </Link>
           </div>

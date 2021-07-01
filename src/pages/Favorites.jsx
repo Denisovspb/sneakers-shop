@@ -21,12 +21,12 @@ function Favorites() {
         </>
       ) : (
         <div className="empty d-flex align-center justify-center flex-column flex">
-          <img width={70} height={70} src="/img/favIsEmpty.svg" alt="Sad smile" />
+          <img width={70} height={70} src="img/favIsEmpty.svg" alt="Sad smile" />
           <h3 className="mb-10">Закладок нет :(((</h3>
           <p>Вы ничего не добавили в закладки</p>
           <Link to="/">
             <button className="greenButton">
-              <img src="/img/arrow.svg" alt="Arrow" /> Вернуться назад
+              <img src="img/arrow.svg" alt="Arrow" /> Вернуться назад
             </button>
           </Link>
         </div>

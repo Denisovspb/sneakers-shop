@@ -40,7 +40,7 @@ function App() {
 
   const onAddToCart = async (item) => {
     try {
-      const findItem = cartItems.find(cartItem => Number(cartItem.id) === Number(item.id))
+      const findItem = cartItems.find(cartItem => Number(cartItem.parentId) === Number(item.id))
       if (findItem){
         setCartItems(prev => prev.filter(cartItem => Number(cartItem.parentId) !== Number(item.id)));
         await axios.delete(`https://60b7cfaab54b0a0017c02b08.mockapi.io/api/v1/cart/${findItem.id}`);
@@ -64,8 +64,8 @@ function App() {
 
   const onRemoveFromCart = async (id) => {
     try {
-      setCartItems( prev => prev.filter(item => Number(item.parentId) !== Number(id)));
       await axios.delete(`https://60b7cfaab54b0a0017c02b08.mockapi.io/api/v1/cart/${id}`);
+      setCartItems( prev => prev.filter(item => Number(item.id) !== Number(id)));
     } catch (error) {
       alert('Ошибка при удалении товара из корзины');
     }    
@@ -99,7 +99,7 @@ function App() {
         <Drawer items={cartItems} onClose={() => setCartOpened(false)} onRemove={onRemoveFromCart} opened={cartOpened} />
         <Header onClickCart={() => setCartOpened(true)} />
 
-        <Route exact path="/">
+        <Route exact path="">
           <Home 
             items={items}
             cartItems={cartItems} 
@@ -111,10 +111,10 @@ function App() {
             isLoading={isLoading} 
           />
         </Route>
-        <Route path="/favorites" exact>
+        <Route path="favorites" exact>
           <Favorites />
         </Route>
-        <Route path="/orders" exact>
+        <Route path="orders" exact>
           <Orders />
         </Route>
       </div>
