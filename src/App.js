@@ -51,7 +51,7 @@ function App() {
           if(item.parentId === data.parentId){
             return {
               ...item,
-              id: data.parentId
+              id: data.id
             }
           }
           return item;
@@ -62,9 +62,10 @@ function App() {
     }
   };
 
-  const onRemoveFromCart = async (id) => {
+  const onRemoveFromCart = (id) => {
     try {
-      await axios.delete(`https://60b7cfaab54b0a0017c02b08.mockapi.io/api/v1/cart/${id}`);
+      axios.delete(`https://60b7cfaab54b0a0017c02b08.mockapi.io/api/v1/cart/${id}`);
+      console.log(id);
       setCartItems( prev => prev.filter(item => Number(item.id) !== Number(id)));
     } catch (error) {
       alert('Ошибка при удалении товара из корзины');
@@ -99,7 +100,7 @@ function App() {
         <Drawer items={cartItems} onClose={() => setCartOpened(false)} onRemove={onRemoveFromCart} opened={cartOpened} />
         <Header onClickCart={() => setCartOpened(true)} />
 
-        <Route exact path="/">
+        <Route path="/" exact>
           <Home 
             items={items}
             cartItems={cartItems} 

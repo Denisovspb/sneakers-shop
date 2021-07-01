@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 function Orders() {
   const { onAddToCart, onFavorite } = React.useContext(AppContext);
   const [orders, setOrders] = React.useState([]);
-  const [idOfOrders, setIdOfOrders] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
   const totalSum = orders.map((obj) =>
