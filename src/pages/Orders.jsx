@@ -63,7 +63,7 @@ function Orders() {
             <img width={70} height={70} src="img/ordersEmpty.svg" alt="Sadness" />
             <h3 className="mb-10">У вас нет заказов</h3>
             <p>Видимо вы бомж...</p>
-            <Link to="/">
+            <Link to={process.env.PUBLIC_URL + '/'}>
               <button className="greenButton">
                 <img src="img/arrow.svg" alt="Arrow" /> Вернуться назад
               </button>

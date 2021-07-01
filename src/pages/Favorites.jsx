@@ -24,7 +24,7 @@ function Favorites() {
           <img width={70} height={70} src="img/favIsEmpty.svg" alt="Sad smile" />
           <h3 className="mb-10">Закладок нет :(((</h3>
           <p>Вы ничего не добавили в закладки</p>
-          <Link to="/">
+          <Link to={process.env.PUBLIC_URL + '/'}>
             <button className="greenButton">
               <img src="img/arrow.svg" alt="Arrow" /> Вернуться назад
             </button>
