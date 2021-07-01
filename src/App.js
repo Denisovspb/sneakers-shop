@@ -100,7 +100,7 @@ function App() {
         <Drawer items={cartItems} onClose={() => setCartOpened(false)} onRemove={onRemoveFromCart} opened={cartOpened} />
         <Header onClickCart={() => setCartOpened(true)} />
 
-        <Route path="/" exact>
+        <Route path={process.env.PUBLIC_URL + '/'} exact>
           <Home 
             items={items}
             cartItems={cartItems} 
@@ -112,10 +112,10 @@ function App() {
             isLoading={isLoading} 
           />
         </Route>
-        <Route path="/favorites" exact>
+        <Route path={process.env.PUBLIC_URL + '/favorites'} exact>
           <Favorites />
         </Route>
-        <Route path="/orders" exact>
+        <Route path={process.env.PUBLIC_URL + '/orders'} exact>
           <Orders />
         </Route>
       </div>
